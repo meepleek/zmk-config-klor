@@ -57,7 +57,7 @@ label= "BASE";
              &kp J   &kp L   &kp U   &kp Y   &kp B
      &kp Z   &kp A   &kp R   &kp S   &kp T   &kp D
      &kp H   &kp N   &kp E   &kp I   &kp O   &kp K 
-     &none   &kp LALT   &hm LCTRL Comma    &hm LSHFT LPAR    &hm LWIN V    &none    &none
+     &none   &kp LALT   &hm LCTRL COMMA    &hm LSHFT LPAR    &hm LWIN V    &none    &none
      &none   &none      &hm RWIN M         &hm RSHFT RPAR    &hm LCTRL DOT   &hm LALT QMARK    &none
                                            &lt WINMGR ESC    &lt NAV SPC     &lt UNICODE TAB   &none
                                            &none             &lt FUN ENTER   &lt NUM BACKSPACE &lt SYM DELETE   
