@@ -110,15 +110,18 @@
 
         sym_layer {
             label= "SYM";
-            bindings = <
-                     &kp J   &kp W   &kp F   &kp P   &kp G
-                     &kp J   &kp L   &kp U   &kp Y   &kp B
-             &kp Z   &kp A   &kp R   &kp S   &kp T   &kp D
-             &kp H   &kp N   &kp E   &kp I   &kp O   &kp K 
-             &none   &kp LALT   &hm LCTRL COMMA    &hm LSHFT LPAR    &hm LWIN V    &none    &none
-             &none   &none      &hm RWIN M         &hm RSHFT RPAR    &hm LCTRL DOT   &hm LALT QMARK    &none
-                                                   &lt WINMGR ESC    &lt NAV SPC     &lt UNICODE TAB   &none
-                                                   &none             &lt FUN ENTER   &lt NUM BACKSPACE &lt SYM DELETE   
+            bindings = <                                 // todo: euro when shifted
+                     &kp PERCENT   &kp CARET   &kp HASH   &kp DOLLAR   &kp TILDE
+                     &none         &none       &none      &none        &none
+
+             &kp BACKSLASH   &kp Q       &kp X           &kp LEFT_BRACE   &kp LEFT_BRACKET   &kp PIPE
+             &none           &kp COLON   &kp AMPERSAND   &kp UNDERSCORE   &kp SEMICOLON      &none
+                     //todo: unicode - degree
+             &none   &none   &kp AT     &kp RIGHT_BRACE   &kp RIGHT_BRACKET   &none      &none
+             &none   &none   &kp RWIN   &kp RSHFT         &kp RCTRL           &kp LALT   &none
+                                                   
+                                                   &kp SINGLE_QUOTE   &kp DOUBLE_QUOTES   &kp GRAVE  &none
+                                                   &none              &none               &none      &none    
             >;
         };
     };
