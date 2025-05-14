@@ -47,23 +47,76 @@
 
     keymap {
         compatible = "zmk,keymap";
-// ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
+        // ##############################
 
-                base_layer {
-label= "BASE";
- bindings = <
-             &kp J   &kp W   &kp F   &kp P   &kp G
-             &kp J   &kp L   &kp U   &kp Y   &kp B
-     &kp Z   &kp A   &kp R   &kp S   &kp T   &kp D
-     &kp H   &kp N   &kp E   &kp I   &kp O   &kp K 
-     &none   &kp LALT   &hm LCTRL COMMA    &hm LSHFT LPAR    &hm LWIN V    &none    &none
-     &none   &none      &hm RWIN M         &hm RSHFT RPAR    &hm LCTRL DOT   &hm LALT QMARK    &none
-                                           &lt WINMGR ESC    &lt NAV SPC     &lt UNICODE TAB   &none
-                                           &none             &lt FUN ENTER   &lt NUM BACKSPACE &lt SYM DELETE   
+        base_layer {
+            label= "BASE";
+            bindings = <
+                     &kp J   &kp W   &kp F   &kp P   &kp G
+                     &kp J   &kp L   &kp U   &kp Y   &kp B
+
+             &kp Z   &kp A   &kp R   &kp S   &kp T   &kp D
+             &kp H   &kp N   &kp E   &kp I   &kp O   &kp K 
+
+             &none   &kp LALT   &hm LCTRL COMMA    &hm LSHFT LPAR    &hm LWIN V    &none    &none
+             &none   &none      &hm RWIN M         &hm RSHFT RPAR    &hm LCTRL DOT   &hm LALT QMARK    &none
+
+                                                   &lt WINMGR ESC    &lt NAV SPC     &lt UNICODE TAB   &none
+                                                   &none             &lt FUN ENTER   &lt NUM BACKSPACE &lt SYM DELETE   
             >;
         };
-// ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
+        // ##############################
+
+        nav_layer {
+            label= "NAV";
+            bindings = <
+                     &none       &none      &none       &none       &none
+                     &kp K_APP   &kp HOME   &kp PG_DN   &kp PG_UP   &kp END
+
+             // TODO: the unused left pinkie
+             &none   &kp LC(Z)   &kp LC(X)   &kp LC(C)   &kp LC(V)   &kp LC(Y)
+             &none   &kp UP      &kp DOWN    &kp LEFT    &kp RIGHT   &caps_word 
+
+             &none   &kp LALT   &kp LCTRL       &kp LSHFT       &kp LWIN        &none          &none
+             &none   &none      &kp LG(KP_N5)   &kp LG(KP_N6)   &kp LG(KP_N7)   &kp CAPSLOCK   &none
+
+                                                   &none   &none           &none               &none
+                                                   &none   &kp LS(ENTER)   &kp LS(BACKSPACE)   &kp LS(DELETE)   
+            >;
         };
+
+        // ##############################
+
+        num_layer {
+            label= "NUM";
+            bindings = <
+                     &kp J   &kp W   &kp F   &kp P   &kp G
+                     &kp J   &kp L   &kp U   &kp Y   &kp B
+             &kp Z   &kp A   &kp R   &kp S   &kp T   &kp D
+             &kp H   &kp N   &kp E   &kp I   &kp O   &kp K 
+             &none   &kp LALT   &hm LCTRL COMMA    &hm LSHFT LPAR    &hm LWIN V    &none    &none
+             &none   &none      &hm RWIN M         &hm RSHFT RPAR    &hm LCTRL DOT   &hm LALT QMARK    &none
+                                                   &lt WINMGR ESC    &lt NAV SPC     &lt UNICODE TAB   &none
+                                                   &none             &lt FUN ENTER   &lt NUM BACKSPACE &lt SYM DELETE   
+            >;
+        };
+
+        // ##############################
+
+        sym_layer {
+            label= "SYM";
+            bindings = <
+                     &kp J   &kp W   &kp F   &kp P   &kp G
+                     &kp J   &kp L   &kp U   &kp Y   &kp B
+             &kp Z   &kp A   &kp R   &kp S   &kp T   &kp D
+             &kp H   &kp N   &kp E   &kp I   &kp O   &kp K 
+             &none   &kp LALT   &hm LCTRL COMMA    &hm LSHFT LPAR    &hm LWIN V    &none    &none
+             &none   &none      &hm RWIN M         &hm RSHFT RPAR    &hm LCTRL DOT   &hm LALT QMARK    &none
+                                                   &lt WINMGR ESC    &lt NAV SPC     &lt UNICODE TAB   &none
+                                                   &none             &lt FUN ENTER   &lt NUM BACKSPACE &lt SYM DELETE   
+            >;
+        };
+    };
 };
