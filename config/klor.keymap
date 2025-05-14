@@ -124,5 +124,26 @@
                                                    &none              &none               &none      &none    
             >;
         };
+
+        // ##############################
+
+        fun_layer {
+            label= "FUN";
+            bindings = <
+                     &kp F10   &kp F7   &kp F8   &kp F9   &none
+                     &none     &none    &none    &none    &none
+
+             &kp PRINTSCREEN   &kp F11   &kp F1   &kp F2   &kp F3   &kp K_SCROLL_DOWN
+             &none   &kp PLUS   &kp SLASH   &kp ASTERISK   &kp MINUS   &none
+             
+             &none   &kp F12   &kp F4     &kp F5      &kp F6      &none      &none
+             &none   &none     &kp RWIN   &kp RSHFT   &kp RCTRL   &kp LALT   &none
+                                                   // todo: use all these
+                                                   &none   &none   &none   &none
+                                                   &none   &none   &none   &none    
+            >;
+        };
+
+        // ##############################
     };
 };
