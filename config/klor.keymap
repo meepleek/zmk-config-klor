@@ -19,6 +19,7 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/rgb.h>
+#include "keycodes_cs.h"
 
 
 #define BASE    0
@@ -26,7 +27,7 @@
 #define NUM     2
 #define SYM     3
 #define FUN     4
-#define UNICODE 5
+#define CZECH   5
 #define WINMGR  6
 
 
@@ -53,16 +54,16 @@
         base_layer {
             label= "BASE";
             bindings = <
-                     &kp J   &kp W   &kp F   &kp P   &kp G
-                     &kp J   &kp L   &kp U   &kp Y   &kp B
+                     &kp CS_J   &kp CS_W   &kp CS_F   &kp CS_P   &kp CS_G
+                     &kp CS_J   &kp CS_L   &kp CS_U   &kp CS_Y   &kp CS_B
 
-             &kp Z   &kp A   &kp R   &kp S   &kp T   &kp D
-             &kp H   &kp N   &kp E   &kp I   &kp O   &kp K 
+             &kp CS_Z   &kp CS_A   &kp CS_R   &kp CS_S   &kp CS_T   &kp CS_D
+             &kp CS_H   &kp CS_N   &kp CS_E   &kp CS_I   &kp CS_O   &kp CS_K 
 
-             &none   &kp LALT   &hm LCTRL COMMA    &hm LSHFT LPAR    &hm LWIN V    &none    &none
-             &none   &none      &hm RWIN M         &hm RSHFT RPAR    &hm LCTRL DOT   &hm LALT QMARK    &none
+             &none   &kp LALT   &hm LCTRL CS_COMMA    &hm LSHFT CS_LPAR    &hm LWIN CS_V    &none    &none
+             &none   &none      &hm RWIN CS_M         &hm RSHFT CS_RPAR    &hm LCTRL CS_DOT   &hm LALT CS_QMARK    &none
 
-                                                   &lt WINMGR ESC    &lt NAV SPC     &lt UNICODE TAB   &none
+                                                   &lt WINMGR ESC    &lt NAV SPC     &lt CZECH TAB   &none
                                                    &none             &lt FUN ENTER   &lt NUM BACKSPACE &lt SYM DELETE   
             >;
         };
@@ -76,7 +77,7 @@
                      &kp K_APP   &kp HOME   &kp PG_DN   &kp PG_UP   &kp END
 
              // TODO: the unused left pinkie
-             &none   &kp LC(Z)   &kp LC(X)   &kp LC(C)   &kp LC(V)   &kp LC(Y)
+             &none   &kp LC(CS_Z)   &kp LC(CS_X)   &kp LC(CS_C)   &kp LC(CS_V)   &kp LC(CS_Y)
              &none   &kp UP      &kp DOWN    &kp LEFT    &kp RIGHT   &caps_word 
 
              &none   &kp LALT   &kp LCTRL       &kp LSHFT       &kp LWIN        &none          &none
@@ -92,16 +93,16 @@
         num_layer {
             label= "NUM";
             bindings = <
-                     &kp LT   &kp N7   &kp N8   &kp N9   &kp GT
+                     &kp CS_LT   &kp CS_N7   &kp CS_N8   &kp CS_N9   &kp CS_GT
                      &none    &none    &none    &none    &none
 
-             &none   &kp N0     &kp N1      &kp N2         &kp N3      &kp EXCL
-             &none   &kp PLUS   &kp SLASH   &kp ASTERISK   &kp MINUS   &none
+             &none   &kp CS_N0     &kp CS_N1      &kp CS_N2         &kp CS_N3      &kp CS_EXCL
+             &none   &kp CS_PLUS   &kp CS_SLASH   &kp CS_ASTERISK   &kp CS_MINUS   &none
              
-             &none   &kp LALT   &hm LCTRL N4   &kp N5      &kp N6      &none      &none
-             &none   &none      &kp RWIN       &kp RSHFT   &kp RCTRL   &kp LALT   &none
+             &none   &kp LALT   &hm LCTRL N4   &kp CS_N5      &kp CS_N6      &none      &none
+             &none   &none      &kp CS_RWIN       &kp CS_RSHFT   &kp CS_RCTRL   &kp LALT   &none
                                                    // todo: use
-                                                   &none   &kp EQUAL   &kp DOT  &none
+                                                   &none   &kp CS_EQUAL   &kp CS_DOT  &none
                                                    &none   &none       &none    &none   
             >;
         };
@@ -111,16 +112,16 @@
         sym_layer {
             label= "SYM";
             bindings = <                                 // todo: euro when shifted
-                     &kp PERCENT   &kp CARET   &kp HASH   &kp DOLLAR   &kp TILDE
+                     &kp CS_PERCENT   &kp CS_CARET   &kp CS_HASH   &kp CS_DOLLAR   &kp CS_TILDE
                      &none         &none       &none      &none        &none
 
-             &kp BACKSLASH   &kp Q       &kp X           &kp LEFT_BRACE   &kp LEFT_BRACKET   &kp PIPE
-             &none           &kp COLON   &kp AMPERSAND   &kp UNDERSCORE   &kp SEMICOLON      &none
+             &kp CS_BACKSLASH   &kp CS_Q       &kp CS_X           &kp CS_LEFT_BRACE   &kp CS_LEFT_BRACKET   &kp CS_PIPE
+             &none           &kp CS_COLON   &kp CS_AMPERSAND   &kp CS_UNDERSCORE   &kp CS_SEMICOLON      &none
                      //todo: unicode - degree
-             &none   &none   &kp AT     &kp RIGHT_BRACE   &kp RIGHT_BRACKET   &none      &none
-             &none   &none   &kp RWIN   &kp RSHFT         &kp RCTRL           &kp LALT   &none
+             &none   &none   &kp CS_AT     &kp CS_RIGHT_BRACE   &kp CS_RIGHT_BRACKET   &none      &none
+             &none   &none   &kp CS_RWIN   &kp CS_RSHFT         &kp CS_RCTRL           &kp LALT   &none
                                                    
-                                                   &kp SINGLE_QUOTE   &kp DOUBLE_QUOTES   &kp GRAVE  &none
+                                                   &kp CS_SINGLE_QUOTE   &kp CS_DOUBLE_QUOTES   &kp CS_GRAVE  &none
                                                    &none              &none               &none      &none    
             >;
         };
@@ -130,14 +131,14 @@
         fun_layer {
             label= "FUN";
             bindings = <
-                     &kp F10   &kp F7   &kp F8   &kp F9   &none
+                     &kp CS_F10   &kp CS_F7   &kp CS_F8   &kp CS_F9   &none
                      &none     &none    &none    &none    &none
 
-             &kp PRINTSCREEN   &kp F11   &kp F1   &kp F2   &kp F3   &kp K_SCROLL_DOWN
-             &none   &kp PLUS   &kp SLASH   &kp ASTERISK   &kp MINUS   &none
+             &kp CS_PRINTSCREEN   &kp CS_F11   &kp CS_F1   &kp CS_F2   &kp CS_F3   &kp CS_K_SCROLL_DOWN
+             &none   &kp CS_PLUS   &kp CS_SLASH   &kp CS_ASTERISK   &kp CS_MINUS   &none
              
-             &none   &kp F12   &kp F4     &kp F5      &kp F6      &none      &none
-             &none   &none     &kp RWIN   &kp RSHFT   &kp RCTRL   &kp LALT   &none
+             &none   &kp CS_F12   &kp CS_F4     &kp CS_F5      &kp CS_F6      &none      &none
+             &none   &none     &kp CS_RWIN   &kp CS_RSHFT   &kp CS_RCTRL   &kp LALT   &none
                                                    // todo: use all these
                                                    &none   &none   &none   &none
                                                    &none   &none   &none   &none    
@@ -146,7 +147,7 @@
 
         // ##############################
 
-        // todo: UNICODE
+        // todo: CZECH
 
         // ##############################
 
@@ -160,7 +161,7 @@
              &kp LG(H)   &kp LG(N)       &kp LG(E)       &kp LG(I)       &kp LG(O)       &kp LG(K)
              
              &none   &kp LALT   &kp LG(KP_N4)   &hm LSHFT LG(KP_N5)   &kp LG(KP_N6)   &none   &none
-             &none   &none     &kp LG(F21)   &kp RSHFT   &kp LG(F23)   &kp LG(F24)   &none
+             &none   &none     &kp LG(F21)   &kp CS_RSHFT   &kp LG(F23)   &kp LG(F24)   &none
                                                    
                                                    &none   &none   &none         &none
                                                    // todo: 
