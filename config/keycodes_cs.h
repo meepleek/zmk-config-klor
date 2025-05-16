@@ -7,17 +7,11 @@
 
 #define CS_SEMICOLON GRAVE
 #define CS_PLUS N1
-#define CS_E_CAR N2
-#define CS_S_CAR N3
-#define CS_C_CAR N4
-#define CS_R_CAR N5
-#define CS_Z_CAR N6
-#define CS_Y_ACU N7
-#define CS_A_ACU N8
-#define CS_I_ACU N9
-#define CS_E_ACU N0
 #define CS_EQUAL MINUS
-#define CS_A_CUT EQUAL
+
+#define CS_ACUTE EQUAL
+#define CS_CARON LS(CS_ACUTE)
+#define CS_RING LS(CS_SEMICOLON)
 
 #define CS_Q Q
 #define CS_W W
@@ -57,19 +51,17 @@
 #define CS_DOT DOT
 #define CS_MINUS SLASH
 
-// #define CS_RNGA LS(CS_SEMICOLON)
-#define CS_N1 LS(CS_PLUS)
-#define CS_N2 LS(CS_E_CAR)
-#define CS_N3 LS(CS_S_CAR)
-#define CS_N4 LS(CS_C_CAR)
-#define CS_N5 LS(CS_R_CAR)
-#define CS_N6 LS(CS_Z_CAR)
-#define CS_N7 LS(CS_Y_ACU)
-#define CS_N8 LS(CS_A_ACU)
-#define CS_N9 LS(CS_I_ACU)
-#define CS_N0 LS(CS_E_ACU)
+#define CS_N1 LS(N1)
+#define CS_N2 LS(N2)
+#define CS_N3 LS(N3)
+#define CS_N4 LS(N4)
+#define CS_N5 LS(N5)
+#define CS_N6 LS(N6)
+#define CS_N7 LS(N7)
+#define CS_N8 LS(N8)
+#define CS_N9 LS(N9)
+#define CS_N0 LS(N0)
 #define CS_PERCENT LS(CS_EQUAL)
-// #define CS_CARN LS(CS_A_CUT)
 #define CS_SLASH LS(LEFT_BRACKET)
 #define CS_LPAR LS(CS_RPAR)
 #define CS_DOUBLE_QUOTES LS(CS_U_RING)
@@ -80,25 +72,13 @@
 #define CS_COLON LS(CS_DOT)
 #define CS_UNDERSCORE LS(CS_MINUS)
 
-#define CS_TILDE RA(CS_PLUS)
-#define CS_CARET RA(CS_S_CAR)
-// #define CS_BREV RA(CS_C_CAR)
-// #define CS_OGON RA(CS_Z_CAR)
-#define CS_GRAVE RA(CS_Y_ACU)
-// #define CS_DOTA RA(CS_A_ACU)
-// #define CS_D_ACU RA(CS_E_ACU)
-// #define CS_CEDL RA(CS_A_CUT)
+#define CS_TILDE RA(N1)
+#define CS_CARET RA(N2)
+#define CS_GRAVE RA(N7)
 // #define CS_EURO RA(CS_E)
-// #define CS_DIV RA(CS_U_ACU)
-// #define CS_MUL RA(CS_RPAR)
-// #define CS_LDST RA(CS_S)
-// #define CS_CDST RA(CS_D)
 #define CS_LEFT_BRACKET RA(CS_F)
 #define CS_RIGHT_BRACKET RA(CS_G)
-// #define CS_LLST RA(CS_K)
-// #define CS_CLST RA(CS_L)
 #define CS_DOLLAR RA(CS_U_RING)
-// #define CS_CURR RA(CS_DIAE)
 #define CS_HASH RA(CS_X)
 #define CS_AMPERSAND RA(CS_C)
 #define CS_AT RA(CS_V)

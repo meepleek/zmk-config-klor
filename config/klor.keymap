@@ -46,6 +46,42 @@
 
     };
 
+
+    macros {
+        cs_car: cs_car {
+            label = "cs_caron";
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings =
+                <&kp CS_CARON &macro_param_1to1 &kp MACRO_PLACEHOLDER>
+            ;
+        };
+
+        cs_acu: cs_acu {
+            label = "cs_acute";
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings =
+                <&kp CS_ACUTE &macro_param_1to1 &kp MACRO_PLACEHOLDER>
+            ;
+        };
+
+        cs_ring: cs_ring {
+            label = "cs_ring";
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings =
+                <&kp CS_RING &macro_param_1to1 &kp MACRO_PLACEHOLDER>
+            ;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -147,7 +183,22 @@
 
         // ##############################
 
-        // todo: CZECH
+        czech_layer {
+            display-name= "CZECH";
+            bindings = <
+                     &none       &none        &none       &none       &none
+                     &cs_acu U   &cs_ring U   &cs_car D   &cs_car N   &cs_car T
+
+             &none       &cs_acu A   &cs_car R   &cs_car S   &cs_car Z   &none
+             &cs_car C   &cs_car E   &cs_acu E   &cs_acu I   &cs_acu Y   &cs_acu O
+
+             &none   &kp LALT   &kp LCTRL       &kp LSHFT       &kp LWIN        &none          &none
+             &none   &none      &none   &kp RSHFT   &none   &none   &none // todo: emoji
+
+                                                   &none   &none           &none               &none
+                                                   &none   &none   &none   &none  // todo: emoji   
+            >;
+        };
 
         // ##############################
 
