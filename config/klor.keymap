@@ -168,7 +168,7 @@
             display-name= "FUN";
             bindings = <
                      &kp F10   &kp F7   &kp F8   &kp F9   &none
-                     &none     &none    &none    &none    &none
+                     &none     &none    &none    &none    &bootloader
 
              &kp PRINTSCREEN   &kp F11   &kp F1   &kp F2   &kp F3   &kp K_SCROLL_DOWN
              &none   &kp CS_PLUS   &kp CS_SLASH   &kp CS_ASTERISK   &kp CS_MINUS   &none
@@ -186,7 +186,7 @@
         czech_layer {
             display-name= "CZECH";
             bindings = <
-                     &none       &none        &none       &none       &none
+                     &none       &none        &none       &none       &bootloader
                      &cs_acu U   &cs_ring U   &cs_car D   &cs_car N   &cs_car T
 
              &none       &cs_acu A   &cs_car R   &cs_car S   &cs_car Z   &none
