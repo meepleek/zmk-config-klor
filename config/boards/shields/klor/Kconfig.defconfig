@@ -1,4 +1,4 @@
-if SHIELD_KLOR_LEFT
+if SHIELD_KLOR_RIGHT
 
     config ZMK_KEYBOARD_NAME
         default "KLOR"
@@ -6,11 +6,11 @@ if SHIELD_KLOR_LEFT
     config ZMK_SPLIT_BLE_ROLE_CENTRAL
         default y
 
-endif # LEFT
+endif # RIGHT
 
 
 
-if SHIELD_KLOR_LEFT || SHIELD_KLOR_RIGHT
+if SHIELD_KLOR_RIGHT || SHIELD_KLOR_LEFT
 
     config ZMK_SPLIT
         default y
