@@ -34,16 +34,38 @@
 
 / {
     behaviors {
-        hm: homerow_mods {
+        hml: home_row_mod_left {
             compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS";
             #binding-cells = <2>;
-            tapping-term-ms = <150>;
-            quick_tap_ms = <0>;
-            flavor = "tap-preferred";
+            flavor = "balanced";
+            require-prior-idle-ms = <150>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
             bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <
+                5 6 7 8 9
+                16 17 18 19 20 21
+                31 32 33 34
+                41 42 43
+            >; // right halve
+            hold-trigger-on-release;
         };
-
+        hmr: home_row_mod_right {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            require-prior-idle-ms = <150>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <
+                0 1 2 3 4
+                10 11 12 13 14 15
+                23 24 25 26
+                36 37 38
+                >; // left halve
+            hold-trigger-on-release;
+        };
     };
 
 
@@ -96,8 +118,8 @@
              &kp CS_Z   &kp CS_A   &kp CS_R   &kp CS_S   &kp CS_T   &kp CS_D
              &kp CS_H   &kp CS_N   &kp CS_E   &kp CS_I   &kp CS_O   &kp CS_K 
 
-             &none   &kp LALT   &hm LCTRL CS_COMMA    &hm LSHFT CS_LPAR    &hm LWIN CS_V    &none    &none
-             &none   &none      &hm RWIN CS_M         &hm RSHFT CS_RPAR    &hm LCTRL CS_DOT   &hm LALT CS_QMARK    &none
+             &none   &kp LALT   &hml LCTRL CS_COMMA    &hml LSHFT CS_LPAR    &hml LWIN CS_V    &none    &none
+             &none   &none      &hmr RWIN CS_M         &hmr RSHFT CS_RPAR    &hmr LCTRL CS_DOT   &hmr LALT CS_QMARK    &none
 
                                                    &lt WINMGR ESC    &lt NAV SPC     &lt CZECH TAB   &none
                                                    &none             &lt FUN ENTER   &lt NUM BACKSPACE &lt SYM DELETE   
@@ -112,8 +134,8 @@
                      &none       &none      &none       &none       &none
                      &kp K_APP   &kp HOME   &kp PG_DN   &kp PG_UP   &kp END
 
-             // TODO: the unused left pinkie
              &none   &kp LC(CS_Z)   &kp LC(CS_X)   &kp LC(CS_C)   &kp LC(CS_V)   &kp LC(CS_Y)
+             // TODO: the unused left pinkie
              &none   &kp UP      &kp DOWN    &kp LEFT    &kp RIGHT   &caps_word 
 
              &none   &kp LALT   &kp LCTRL       &kp LSHFT       &kp LWIN        &none          &none
@@ -135,7 +157,7 @@
              &none   &kp CS_N0     &kp CS_N1      &kp CS_N2         &kp CS_N3      &kp CS_EXCL
              &none   &kp CS_PLUS   &kp CS_SLASH   &kp CS_ASTERISK   &kp CS_MINUS   &none
              
-             &none   &kp LALT   &hm LCTRL N4   &kp CS_N5      &kp CS_N6      &none      &none
+             &none   &kp LALT   &hml LCTRL N4   &kp CS_N5      &kp CS_N6      &none      &none
              &none   &none      &kp RWIN       &kp RSHFT   &kp RCTRL   &kp LALT   &none
                                                    // todo: use
                                                    &none   &kp CS_EQUAL   &kp CS_DOT  &none
@@ -211,7 +233,7 @@
              &none       &kp LG(KP_N0)   &kp LG(KP_N1)   &kp LG(KP_N2)   &kp LG(KP_N3)   &none
              &kp LG(H)   &kp LG(N)       &kp LG(E)       &kp LG(I)       &kp LG(O)       &kp LG(K)
              
-             &none   &kp LALT   &kp LG(KP_N4)   &hm LSHFT LG(KP_N5)   &kp LG(KP_N6)   &none   &none
+             &none   &kp LALT   &kp LG(KP_N4)   &hml LSHFT LG(KP_N5)   &kp LG(KP_N6)   &none   &none
              &none   &none     &kp LG(F21)   &kp RSHFT   &kp LG(F23)   &kp LG(F24)   &none
                                                    
                                                    &none   &none   &none         &none
