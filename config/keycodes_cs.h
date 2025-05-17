@@ -75,7 +75,7 @@
 #define CS_TILDE RA(N1)
 #define CS_CARET RA(N2)
 #define CS_GRAVE RA(N7)
-// #define CS_EURO RA(CS_E)
+#define CS_EURO RA(CS_E)
 #define CS_LEFT_BRACKET RA(CS_F)
 #define CS_RIGHT_BRACKET RA(CS_G)
 #define CS_DOLLAR RA(CS_U_RING)

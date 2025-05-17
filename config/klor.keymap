@@ -47,7 +47,7 @@
                 16 17 18 19 20 21
                 31 32 33 34
                 41 42 43
-            >; // right halve
+            >;
             hold-trigger-on-release;
         };
         hmr: home_row_mod_right {
@@ -63,8 +63,14 @@
                 10 11 12 13 14 15
                 23 24 25 26
                 36 37 38
-                >; // left halve
+            >;
             hold-trigger-on-release;
+        };
+        currency: currency {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp CS_DOLLAR>, <&kp CS_EURO>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
     };
 
@@ -169,9 +175,9 @@
 
         sym_layer {
             display-name= "SYM";
-            bindings = <                                           // todo: euro when shifted
-                     &kp CS_PERCENT   &kp CS_CARET   &kp CS_HASH   &kp CS_DOLLAR   &kp CS_TILDE
-                     &none         &none       &none      &none        &none
+            bindings = <                                           
+                     &kp CS_PERCENT   &kp CS_CARET   &kp CS_HASH   &currency   &kp CS_TILDE
+                     &none         &none       &none      &none    &none
 
              &kp CS_BACKSLASH   &kp CS_Q       &kp CS_X           &kp CS_LEFT_BRACE   &kp CS_LEFT_BRACKET   &kp CS_PIPE
              &none           &kp CS_COLON   &kp CS_AMPERSAND   &kp CS_UNDERSCORE   &kp CS_SEMICOLON      &none
@@ -190,7 +196,7 @@
             display-name= "FUN";
             bindings = <
                      &kp F10   &kp F7   &kp F8   &kp F9   &none
-                     &none     &none    &none    &none    &bootloader
+                     &bootloader     &none    &none    &none    &none
 
              &kp PRINTSCREEN   &kp F11   &kp F1   &kp F2   &kp F3   &kp K_SCROLL_DOWN
              &none   &kp CS_PLUS   &kp CS_SLASH   &kp CS_ASTERISK   &kp CS_MINUS   &none
