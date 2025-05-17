@@ -118,8 +118,8 @@
         base_layer {
             display-name= "BASE";
             bindings = <
-                     &kp CS_C   &kp CS_W   &kp CS_F   &kp CS_P   &kp CS_G
-                     &kp CS_J   &kp CS_L   &kp CS_U   &kp CS_Y   &kp CS_B
+                     &kp CS_J   &kp CS_W   &kp CS_F   &kp CS_P   &kp CS_G
+                     &kp CS_C   &kp CS_L   &kp CS_U   &kp CS_Y   &kp CS_B
 
              &kp CS_Z   &kp CS_A   &kp CS_R   &kp CS_S   &kp CS_T   &kp CS_D
              &kp CS_H   &kp CS_N   &kp CS_E   &kp CS_I   &kp CS_O   &kp CS_K 
