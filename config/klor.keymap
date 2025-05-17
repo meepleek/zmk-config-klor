@@ -118,7 +118,7 @@
         base_layer {
             display-name= "BASE";
             bindings = <
-                     &kp CS_J   &kp CS_W   &kp CS_F   &kp CS_P   &kp CS_G
+                     &kp CS_C   &kp CS_W   &kp CS_F   &kp CS_P   &kp CS_G
                      &kp CS_J   &kp CS_L   &kp CS_U   &kp CS_Y   &kp CS_B
 
              &kp CS_Z   &kp CS_A   &kp CS_R   &kp CS_S   &kp CS_T   &kp CS_D
@@ -142,7 +142,7 @@
 
              &none   &kp LC(CS_Z)   &kp LC(CS_X)   &kp LC(CS_C)   &kp LC(CS_V)   &kp LC(CS_Y)
              // TODO: the unused left pinkie
-             &none   &kp UP      &kp DOWN    &kp LEFT    &kp RIGHT   &caps_word 
+             &none   &kp LEFT      &kp DOWN    &kp UP    &kp RIGHT   &caps_word 
 
              &none   &kp LALT   &kp LCTRL       &kp LSHFT       &kp LWIN        &none          &none
              &none   &none      &kp LG(KP_N5)   &kp LG(KP_N6)   &kp LG(KP_N7)   &kp CAPSLOCK   &none
@@ -163,7 +163,7 @@
              &none   &kp CS_N0     &kp CS_N1      &kp CS_N2         &kp CS_N3      &kp CS_EXCL
              &none   &kp CS_PLUS   &kp CS_SLASH   &kp CS_ASTERISK   &kp CS_MINUS   &none
              
-             &none   &kp LALT   &hml LCTRL N4   &kp CS_N5      &kp CS_N6      &none      &none
+             &none   &kp LALT   &hml LCTRL CS_N4   &kp CS_N5      &kp CS_N6      &none      &none
              &none   &none      &kp RWIN       &kp RSHFT   &kp RCTRL   &kp LALT   &none
                                                    // todo: use
                                                    &none   &kp CS_EQUAL   &kp CS_DOT  &none
