@@ -34,6 +34,16 @@
 
 / {
     behaviors {
+        lt_rep: layer_tap_repeat {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            quick-tap-ms = <175>;
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&kp>;
+            display-name = "Layer-Tap-With-Repeat";
+        };
+
         hml: home_row_mod_left {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -127,8 +137,8 @@
              &none   &kp LALT   &hml LCTRL CS_COMMA    &hml LSHFT CS_LPAR    &hml LWIN CS_V    &none    &none
              &none   &none      &hmr RWIN CS_M         &hmr RSHFT CS_RPAR    &hmr LCTRL CS_DOT   &hmr LALT CS_QMARK    &none
 
-                                                   &lt WINMGR ESC    &lt NAV SPC     &lt CZECH TAB   &none
-                                                   &none             &lt FUN ENTER   &lt NUM BACKSPACE &lt SYM DELETE   
+                                                   &lt WINMGR ESC    &lt_rep NAV SPC     &lt CZECH TAB         &none
+                                                   &none             &lt_rep FUN ENTER   &lt_rep NUM BACKSPACE &lt_rep SYM DELETE   
             >;
         };
 
