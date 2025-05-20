@@ -20,6 +20,7 @@
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/rgb.h>
 #include "keycodes_cs.h"
+#include "emoji.h"
 
 
 #define BASE    0
@@ -30,7 +31,13 @@
 #define CZECH   5
 #define WINMGR  6
 
-
+ZMK_EMOJI_PAIR(emj_smile,      N6, N4, N2,  N6, N0, N2)
+ZMK_EMOJI_PAIR(emj_grin,       N6, N0, N1,  N6, N0, N5)
+ZMK_EMOJI_PAIR(emj_sad,        N6, N4, N1,  N6, N2, D)
+ZMK_EMOJI_PAIR(emj_tongue,     N6, N0, B,   N6, N1, D)
+ZMK_EMOJI_PAIR(emj_innocent,   N6, N0, N7,  N9, N7, A)
+ZMK_EMOJI_PAIR(emj_vomit,      N9, N2, N8,  N9, N2, E)
+ZMK_EMOJI_PAIR(emj_thumb,      N4, N4, D,   N9, N7, N0)
 
 / {
     behaviors {
@@ -225,16 +232,17 @@
             display-name= "CZECH";
             bindings = <
                      &none       &none        &none       &none       &bootloader
-                     &cs_acu U   &cs_ring U   &cs_car D   &cs_car N   &cs_car T
+                     &cs_acu CS_U   &cs_ring CS_U   &cs_car CS_D   &cs_car CS_N   &cs_car CS_T
 
-             &none       &cs_acu A   &cs_car R   &cs_car S   &cs_car Z   &none
-             &cs_car C   &cs_car E   &cs_acu E   &cs_acu I   &cs_acu Y   &cs_acu O
+             &none       &cs_acu CS_A   &cs_car CS_R   &cs_car CS_S   &cs_car CS_Z   &none
+             &cs_car CS_C   &cs_car CS_E   &cs_acu CS_E   &cs_acu CS_I   &cs_acu CS_Y   &cs_acu CS_O
 
-             &none   &kp LALT   &kp LCTRL       &kp LSHFT       &kp LWIN        &none          &none
-             &none   &none      &none   &kp RSHFT   &none   &none   &none // todo: emoji
+             &none   &kp LALT   &kp LCTRL     &kp LSHFT   &kp LWIN   &none        &none
+                              // 
+             &none   &none      &emj_tongue   &kp RSHFT   &emj_vomit &emj_thumb   &emj_innocent
 
                                                    &none   &none           &none               &none
-                                                   &none   &none   &none   &none  // todo: emoji   
+                                                   &none   &emj_sad   &emj_grin   &emj_smile   
             >;
         };
 
