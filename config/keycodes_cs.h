@@ -4,6 +4,7 @@
 // #include <dt-bindings/zmk/hid_usage_pages.h>
 // #include <dt-bindings/zmk/modifiers.h>
 #include <dt-bindings/zmk/keys.h>
+#include "macros.h"
 
 #define CS_SEMICOLON GRAVE
 #define CS_PLUS N1
@@ -35,9 +36,7 @@
 #define CS_J J
 #define CS_K K
 #define CS_L L
-#define CS_U_RING SEMICOLON
 #define CS_SECT SINGLE_QUOTE
-#define CS_DIAE NON_US_HASH
 #define CS_BACKSLASH NON_US_BACKSLASH
 
 #define CS_Y Z
@@ -50,6 +49,18 @@
 #define CS_COMMA COMMA
 #define CS_DOT DOT
 #define CS_MINUS SLASH
+
+#define CS_E_CAR N2
+#define CS_S_CAR N3
+#define CS_C_CAR N4
+#define CS_R_CAR N5
+#define CS_Z_CAR N6
+#define CS_Y_ACU N7
+#define CS_A_ACU N8
+#define CS_I_ACU N9
+#define CS_E_ACU N0
+#define CS_U_ACU LEFT_BRACKET
+#define CS_U_RING SEMICOLON
 
 #define CS_N1 LS(N1)
 #define CS_N2 LS(N2)
@@ -66,7 +77,7 @@
 #define CS_LPAR LS(CS_RPAR)
 #define CS_DOUBLE_QUOTES LS(CS_U_RING)
 #define CS_EXCL LS(CS_SECT)
-#define CS_SINGLE_QUOTE LS(CS_DIAE)
+#define CS_SINGLE_QUOTE LS(CS_E_ACU)
 #define CS_PIPE LS(CS_BACKSLASH)
 #define CS_QMARK LS(CS_COMMA)
 #define CS_COLON LS(CS_DOT)
@@ -87,3 +98,65 @@
 #define CS_LT RA(CS_COMMA)
 #define CS_GT RA(CS_DOT)
 #define CS_ASTERISK RA(SLASH)
+
+#define CS_CHAR_MACRO(name, key_binding)                                                     \
+/                                                                                            \
+{                                                                                            \
+    macros                                                                                   \
+    {                                                                                        \
+        name##_lower: name##_lower {                                                         \
+            compatible = "zmk,behavior-macro";                                               \
+            wait-ms = <0>;                                                                   \
+            tap-ms = <0>;                                                                    \
+            #binding-cells = <0>;                                                            \
+            bindings = <key_binding>;                                                        \
+        };                                                                                   \
+        name##_upper: name##_upper {                                                         \
+            compatible = "zmk,behavior-macro";                                               \
+            wait-ms = <20>;                                                                  \
+            tap-ms = <20>;                                                                   \
+            #binding-cells = <0>;                                                            \
+            bindings =                                                                       \
+                <&kp CAPS>,                                                                  \
+                <key_binding>,                                                               \
+                <&kp CAPS>                                                                   \
+            ;                                                                                \
+        };                                                                                   \
+    };                                                                                       \
+};
+
+#define CS_KEY_PAIR(name, key)                           \
+    CS_CHAR_MACRO(name, &kp key)                         \
+    SHIFTED_MODMORPH(name, &name##_lower, &name##_upper)
+
+#define CS_DIAC_CHAR_MACRO(name, key_binding, diacritic_binding)                             \
+/                                                                                            \
+{                                                                                            \
+    macros                                                                                   \
+    {                                                                                        \
+        name##_lower: name##_lower {                                                         \
+            compatible = "zmk,behavior-macro";                                               \
+            wait-ms = <20>;                                                                  \
+            tap-ms = <20>;                                                                   \
+            #binding-cells = <0>;                                                            \
+            bindings =                                                                       \
+                <diacritic_binding>,                                                         \
+                <key_binding>;                                                               \
+        };                                                                                   \
+        name##_upper: name##_upper {                                                         \
+            compatible = "zmk,behavior-macro";                                               \
+            wait-ms = <20>;                                                                  \
+            tap-ms = <20>;                                                                   \
+            #binding-cells = <0>;                                                            \
+            bindings =                                                                       \
+                <diacritic_binding>,                                                         \
+                <&kp CAPS>,                                                                  \
+                <key_binding>,                                                               \
+                <&kp CAPS>;                                                                  \
+        };                                                                                   \
+    };                                                                                       \
+};
+
+#define CS_DIAC_KEY_PAIR(name, key, diacritic)                           \
+    CS_DIAC_CHAR_MACRO(name, &kp key, &kp diacritic)                          \
+    SHIFTED_MODMORPH(name, &name##_lower, &name##_upper)

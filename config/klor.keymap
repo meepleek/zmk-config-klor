@@ -39,6 +39,24 @@ ZMK_EMOJI_PAIR(emj_innocent,   N6, N0, N7,  N9, N7, A)
 ZMK_EMOJI_PAIR(emj_vomit,      N9, N2, N8,  N9, N2, E)
 ZMK_EMOJI_PAIR(emj_thumb,      N4, N4, D,   N9, N7, N0)
 
+
+CS_KEY_PAIR(cs_a_acu, CS_A_ACU)
+CS_KEY_PAIR(cs_e_acu, CS_E_ACU)
+CS_KEY_PAIR(cs_e_car, CS_E_CAR)
+CS_KEY_PAIR(cs_i_acu, CS_I_ACU)
+CS_DIAC_KEY_PAIR(cs_o_acu, CS_O, CS_ACUTE)  
+CS_KEY_PAIR(cs_u_acu, CS_U_ACU)
+CS_KEY_PAIR(cs_u_ring, CS_U_RING)
+CS_KEY_PAIR(cs_y_acu, CS_Y_ACU)  
+
+CS_KEY_PAIR(cs_c_car, CS_C_CAR)
+CS_DIAC_KEY_PAIR(cs_d_car, CS_D, CS_CARON)
+CS_DIAC_KEY_PAIR(cs_n_car, CS_N, CS_CARON)
+CS_DIAC_KEY_PAIR(cs_t_car, CS_T, CS_CARON)
+CS_KEY_PAIR(cs_r_car, CS_R_CAR)
+CS_KEY_PAIR(cs_s_car, CS_S_CAR)
+CS_KEY_PAIR(cs_z_car, CS_Z_CAR)
+
 / {
     behaviors {
         lt_rep: layer_tap_repeat {
@@ -86,42 +104,6 @@ ZMK_EMOJI_PAIR(emj_thumb,      N4, N4, D,   N9, N7, N0)
             #binding-cells = <0>;
             bindings = <&kp CS_DOLLAR>, <&kp CS_EURO>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-    };
-
-
-    macros {
-        cs_car: cs_car {
-            label = "cs_caron";
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
-            wait-ms = <40>;
-            tap-ms = <40>;
-            bindings =
-                <&kp CS_CARON &macro_param_1to1 &kp MACRO_PLACEHOLDER>
-            ;
-        };
-
-        cs_acu: cs_acu {
-            label = "cs_acute";
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
-            wait-ms = <40>;
-            tap-ms = <40>;
-            bindings =
-                <&kp CS_ACUTE &macro_param_1to1 &kp MACRO_PLACEHOLDER>
-            ;
-        };
-
-        cs_ring: cs_ring {
-            label = "cs_ring";
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
-            wait-ms = <40>;
-            tap-ms = <40>;
-            bindings =
-                <&kp CS_RING &macro_param_1to1 &kp MACRO_PLACEHOLDER>
-            ;
         };
     };
 
@@ -191,8 +173,8 @@ ZMK_EMOJI_PAIR(emj_thumb,      N4, N4, D,   N9, N7, N0)
         sym_layer {
             display-name= "SYM";
             bindings = <                                           
-                     &kp CS_PERCENT   &kp CS_CARET   &kp CS_HASH   &currency   &kp CS_TILDE
-                     &none         &none       &none      &none    &none
+                     &kp CS_PERCENT   &kp CS_CARET   &kp CS_HASH   &currency      &kp CS_TILDE
+                     &bt BT_SEL 0     &bt BT_SEL 1   &bt BT_SEL 2  &bt BT_SEL 3   &bt BT_SEL 4
 
              &kp CS_BACKSLASH   &kp CS_Q       &kp CS_X           &kp CS_LEFT_BRACE   &kp CS_LEFT_BRACKET   &kp CS_PIPE
              &none           &kp CS_COLON   &kp CS_AMPERSAND   &kp CS_UNDERSCORE   &kp CS_SEMICOLON      &none
@@ -230,13 +212,12 @@ ZMK_EMOJI_PAIR(emj_thumb,      N4, N4, D,   N9, N7, N0)
             display-name= "CZECH";
             bindings = <
                      &none       &none        &none       &none       &bootloader
-                     &cs_acu CS_U   &cs_ring CS_U   &cs_car CS_D   &cs_car CS_N   &cs_car CS_T
+                     &cs_u_acu   &cs_u_ring   &cs_d_car   &cs_n_car   &cs_t_car
 
-             &none       &cs_acu CS_A   &cs_car CS_R   &cs_car CS_S   &cs_car CS_Z   &none
-             &cs_car CS_C   &cs_car CS_E   &cs_acu CS_E   &cs_acu CS_I   &cs_acu CS_Y   &cs_acu CS_O
+             &none       &cs_a_acu  &cs_r_car   &cs_s_car   &cs_z_car   &none
+             &cs_c_car   &cs_e_car  &cs_e_acu   &cs_i_acu   &cs_y_acu  &cs_o_acu
 
              &none   &kp LALT   &kp LCTRL     &kp LSHFT   &kp LWIN   &none        &none
-                              // 
              &none   &none      &emj_tongue   &kp RSHFT   &emj_vomit &emj_thumb   &emj_innocent
 
                                                    &none   &none           &none               &none
