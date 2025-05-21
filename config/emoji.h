@@ -4,7 +4,6 @@
 
 #pragma once
 
-// todo: might need to update the linux start/end sequence to the cs layout?
 #define UC_MACRO(name, unicode_bindings)                                                         \
     /                                                                                            \
     {                                                                                            \
