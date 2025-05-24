@@ -35,6 +35,22 @@
 #define CZECH_WIN 9
 #define WINMGR  10
 
+CZECH_PAIR(a_acu,   N0, E, N1,    N0, C, N1)
+CZECH_PAIR(e_acu,   N0, E, N9,    N0, C, N9)
+CZECH_PAIR(e_car,   N1, N1, B,    N1, N1, A)
+CZECH_PAIR(i_acu,   N0, E, D,     N0, C, D)
+CZECH_PAIR(o_acu,   N0, F, N3,    N0, D, N3)
+CZECH_PAIR(u_acu,   N0, F, A,     N0, D, A)
+CZECH_PAIR(u_ring,  N1, N6, F,    N1, N6, E)
+CZECH_PAIR(y_acu,   N0, F, D,     N0, D, D)
+CZECH_PAIR(c_car,   N1, N0, D,    N1, N0, C)
+CZECH_PAIR(d_car,   N1, N0, F,    N1, N0, E)
+CZECH_PAIR(n_car,   N1, N4, N8,   N1, N4, N7)
+CZECH_PAIR(r_car,   N1, N5, N9,   N1, N5, N8)
+CZECH_PAIR(s_car,   N1, N6, N1,   N1, N6, N0)
+CZECH_PAIR(t_car,   N1, N6, N5,   N1, N6, N4)
+CZECH_PAIR(z_car,   N1, N7, E,    N1, N7, D)
+
 EMOJI_PAIR(emj_smile,      N6, N4, N2,  N6, N0, N2)
 EMOJI_PAIR(emj_grin,       N6, N0, N1,  N6, N0, N5)
 EMOJI_PAIR(emj_sad,        N6, N4, N1,  N6, N2, D)
@@ -43,23 +59,6 @@ EMOJI_PAIR(emj_innocent,   N6, N0, N7,  N9, N7, A)
 EMOJI_PAIR(emj_vomit,      N9, N2, N8,  N9, N2, E)
 EMOJI_PAIR(emj_thumb,      N4, N4, D,   N9, N7, N0)
 
-
-CZECH_PAIR(cs_a_acu,   N0, E, N1,    N0, C, N1)
-CS_KEY_PAIR(cs_e_acu, CS_E_ACU)
-CS_KEY_PAIR(cs_e_car, CS_E_CAR)
-CS_KEY_PAIR(cs_i_acu, CS_I_ACU)
-CS_DIAC_KEY_PAIR(cs_o_acu, CS_O, CS_ACUTE)  
-CS_KEY_PAIR(cs_u_acu, CS_U_ACU)
-CS_KEY_PAIR(cs_u_ring, CS_U_RING)
-CS_KEY_PAIR(cs_y_acu, CS_Y_ACU)  
-
-CS_KEY_PAIR(cs_c_car, CS_C_CAR)
-CS_DIAC_KEY_PAIR(cs_d_car, CS_D, CS_CARON)
-CS_DIAC_KEY_PAIR(cs_n_car, CS_N, CS_CARON)
-CS_DIAC_KEY_PAIR(cs_t_car, CS_T, CS_CARON)
-CS_KEY_PAIR(cs_r_car, CS_R_CAR)
-CS_KEY_PAIR(cs_s_car, CS_S_CAR)
-CS_KEY_PAIR(cs_z_car, CS_Z_CAR)
 
 / {
     behaviors {
@@ -302,17 +301,7 @@ CS_KEY_PAIR(cs_z_car, CS_Z_CAR)
         czech_layer {
             display-name= "CZECH";
             bindings = <
-                     &none       &none        &none       &none       &bootloader
-                     &cs_u_acu   &cs_u_ring   &cs_d_car   &cs_n_car   &cs_t_car
-
-             &none       &cs_a_acu  &cs_r_car   &cs_s_car   &cs_z_car   &none
-             &kp L   &kp N  &kp X   &cs_i_acu   &cs_y_acu  &cs_o_acu
-
-             &none   &kp LALT   &kp LCTRL     &kp LSHFT   &kp LWIN   &none        &none
-             &none   &none      &emj_tongue   &kp RSHFT   &emj_vomit &emj_thumb   &emj_innocent
-
-                                                   &none   &none           &none               &none
-                                                   &none   &emj_sad   &emj_grin   &emj_smile   
+                     UNICODE_LAYER(l_)   
             >;
         };
 
@@ -321,17 +310,7 @@ CS_KEY_PAIR(cs_z_car, CS_Z_CAR)
         mac_czech_layer {
             display-name= "CZECH_MAC";
             bindings = <
-                        &trans      &trans     &trans      &trans      &trans
-                     &trans   &trans   &trans   &trans   &trans
-
-             &trans  &m_cs_a_acu   &trans   &trans   &trans   &trans
-             &kp M  &kp A      &kp C    &trans    &trans   &trans
-
-             &trans  &trans   &trans       &trans       &trans        &trans         &trans
-             &trans  &trans     &trans   &trans   &trans   &trans   &trans
-
-                                                   &trans  &trans          &trans              &trans
-                                                   &trans  &trans   &trans   &trans   
+                     UNICODE_LAYER(m_)   
             >;
         };
 
@@ -340,17 +319,7 @@ CS_KEY_PAIR(cs_z_car, CS_Z_CAR)
         win_czech_layer {
             display-name= "CZECH_WIN";
             bindings = <
-                        &trans      &trans     &trans      &trans      &trans
-                     &trans   &trans   &trans   &trans   &trans
-
-             &trans  &w_cs_a_acu   &trans   &trans   &trans   &trans
-             &kp W  &kp I      &kp N    &trans    &trans   &trans
-
-             &trans  &trans   &trans       &trans       &trans        &trans         &trans
-             &trans  &trans     &trans   &trans   &trans   &trans   &trans
-
-                                                   &trans  &trans          &trans              &trans
-                                                   &trans  &trans   &trans   &trans   
+                     UNICODE_LAYER(w_)   
             >;
         };
 

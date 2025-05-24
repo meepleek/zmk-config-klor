@@ -45,11 +45,24 @@
     SHIFTED_MODMORPH(name, &name##_lower, &name##_upper)
 
 #define EMOJI_PAIR(name, L2, L3, L4, U2, U3, U4) \
-    EMOJI_PAIR_OS(name, UNICODE_LEAD_LINUX, UNICODE_TRAIL_LINUX, L2, L3, L4, U2, U3, U4)   \
+    EMOJI_PAIR_OS(l_##name, UNICODE_LEAD_LINUX, UNICODE_TRAIL_LINUX, L2, L3, L4, U2, U3, U4)   \
     EMOJI_PAIR_OS(m_##name, UNICODE_LEAD_MAC, UNICODE_TRAIL_MAC, L2, L3, L4, U2, U3, U4)       \
     EMOJI_PAIR_OS(w_##name, UNICODE_LEAD_WIN, UNICODE_TRAIL_WIN, L2, L3, L4, U2, U3, U4)
 
 #define CZECH_PAIR(name, L1, L2, L3, U1, U2, U3) \
-    CZECH_PAIR_OS(name, UNICODE_LEAD_LINUX, UNICODE_TRAIL_LINUX, L1, L2, L3, U1, U2, U3)   \
+    CZECH_PAIR_OS(l_##name, UNICODE_LEAD_LINUX, UNICODE_TRAIL_LINUX, L1, L2, L3, U1, U2, U3)   \
     CZECH_PAIR_OS(m_##name, UNICODE_LEAD_MAC, UNICODE_TRAIL_MAC, L1, L2, L3, U1, U2, U3)       \
     CZECH_PAIR_OS(w_##name, UNICODE_LEAD_WIN, UNICODE_TRAIL_WIN, L1, L2, L3, U1, U2, U3)
+
+#define UNICODE_LAYER(prefix) \
+         &none       &none        &none       &none       &bootloader     \
+         &prefix##u_acu   &prefix##u_ring   &prefix##d_car   &prefix##n_car   &prefix##t_car     \
+     \
+ &none       &prefix##a_acu  &prefix##r_car   &prefix##s_car   &prefix##z_car   &none     \
+ &kp L   &kp N  &kp X   &prefix##i_acu   &prefix##y_acu  &prefix##o_acu     \
+     \
+ &none   &kp LALT   &kp LCTRL     &kp LSHFT   &kp LWIN   &none        &none     \
+ &none   &none      &prefix##emj_tongue   &kp RSHFT   &prefix##emj_vomit &prefix##emj_thumb   &prefix##emj_innocent     \
+     \
+                                       &none   &none           &none               &none     \
+                                       &none   &prefix##emj_sad   &prefix##emj_grin   &prefix##emj_smile 
