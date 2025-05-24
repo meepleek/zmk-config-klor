@@ -20,7 +20,7 @@
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/rgb.h>
 #include "keycodes_cs.h"
-#include "emoji.h"
+#include "unicode.h"
 
 
 #define BASE    0
@@ -35,16 +35,16 @@
 #define CZECH_WIN 9
 #define WINMGR  10
 
-ZMK_EMOJI_PAIR(emj_smile,      N6, N4, N2,  N6, N0, N2)
-ZMK_EMOJI_PAIR(emj_grin,       N6, N0, N1,  N6, N0, N5)
-ZMK_EMOJI_PAIR(emj_sad,        N6, N4, N1,  N6, N2, D)
-ZMK_EMOJI_PAIR(emj_tongue,     N6, N0, B,   N6, N1, D)
-ZMK_EMOJI_PAIR(emj_innocent,   N6, N0, N7,  N9, N7, A)
-ZMK_EMOJI_PAIR(emj_vomit,      N9, N2, N8,  N9, N2, E)
-ZMK_EMOJI_PAIR(emj_thumb,      N4, N4, D,   N9, N7, N0)
+EMOJI_PAIR(emj_smile,      N6, N4, N2,  N6, N0, N2)
+EMOJI_PAIR(emj_grin,       N6, N0, N1,  N6, N0, N5)
+EMOJI_PAIR(emj_sad,        N6, N4, N1,  N6, N2, D)
+EMOJI_PAIR(emj_tongue,     N6, N0, B,   N6, N1, D)
+EMOJI_PAIR(emj_innocent,   N6, N0, N7,  N9, N7, A)
+EMOJI_PAIR(emj_vomit,      N9, N2, N8,  N9, N2, E)
+EMOJI_PAIR(emj_thumb,      N4, N4, D,   N9, N7, N0)
 
 
-CS_KEY_PAIR(cs_a_acu, CS_A_ACU)
+CZECH_PAIR(cs_a_acu,   N0, E, N1,    N0, C, N1)
 CS_KEY_PAIR(cs_e_acu, CS_E_ACU)
 CS_KEY_PAIR(cs_e_car, CS_E_CAR)
 CS_KEY_PAIR(cs_i_acu, CS_I_ACU)
@@ -324,7 +324,7 @@ CS_KEY_PAIR(cs_z_car, CS_Z_CAR)
                         &trans      &trans     &trans      &trans      &trans
                      &trans   &trans   &trans   &trans   &trans
 
-             &trans  &trans   &trans   &trans   &trans   &trans
+             &trans  &m_cs_a_acu   &trans   &trans   &trans   &trans
              &kp M  &kp A      &kp C    &trans    &trans   &trans
 
              &trans  &trans   &trans       &trans       &trans        &trans         &trans
@@ -343,7 +343,7 @@ CS_KEY_PAIR(cs_z_car, CS_Z_CAR)
                         &trans      &trans     &trans      &trans      &trans
                      &trans   &trans   &trans   &trans   &trans
 
-             &trans  &trans   &trans   &trans   &trans   &trans
+             &trans  &w_cs_a_acu   &trans   &trans   &trans   &trans
              &kp W  &kp I      &kp N    &trans    &trans   &trans
 
              &trans  &trans   &trans       &trans       &trans        &trans         &trans
