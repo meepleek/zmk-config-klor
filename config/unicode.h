@@ -33,6 +33,23 @@
         };                                                                                       \
     };
 
+#define OS_HINT_MACRO(name, c0, c1, c2)                                                         \
+    /                                                                                            \
+    {                                                                                            \
+        macros                                                                                   \
+        {                                                                                        \
+        name##_os_hint:                                                                                    \
+            name##_os_hint                                                                                \
+            {                                                                                    \
+                compatible = "zmk,behavior-macro";                                               \
+                wait-ms = <0>;                                                                 \
+                tap-ms = <0>;                                                                  \
+                #binding-cells = <0>;                                                          \
+                bindings = <&kp c0 &kp c1 &kp c2>; \
+            };                                                                                   \
+        };                                                                                       \
+    };
+
 
 #define EMOJI_PAIR_OS(name, leading_binding, trailing_binding, L2, L3, L4, U2, U3, U4) \
     UC_MACRO(name##_lower, leading_binding, trailing_binding, &kp N1 &kp F &kp L2 &kp L3 &kp L4)       \
@@ -54,12 +71,17 @@
     CZECH_PAIR_OS(m_##name, UNICODE_LEAD_MAC, UNICODE_TRAIL_MAC, L1, L2, L3, U1, U2, U3)       \
     CZECH_PAIR_OS(w_##name, UNICODE_LEAD_WIN, UNICODE_TRAIL_WIN, L1, L2, L3, U1, U2, U3)
 
+#define UNICODE_CHAR(name, keybinding) \
+    UC_MACRO(l_##name, UNICODE_LEAD_LINUX, UNICODE_TRAIL_LINUX, keybinding)   \
+    UC_MACRO(m_##name, UNICODE_LEAD_MAC, UNICODE_TRAIL_MAC, keybinding)       \
+    UC_MACRO(w_##name, UNICODE_LEAD_WIN, UNICODE_TRAIL_WIN, keybinding)
+
 #define UNICODE_LAYER(prefix) \
-         &none       &none        &none       &none       &bootloader     \
+         &prefix##os_hint       &none        &prefix##degree       &prefix##euro       &bootloader     \
          &prefix##u_acu   &prefix##u_ring   &prefix##d_car   &prefix##n_car   &prefix##t_car     \
      \
  &none       &prefix##a_acu  &prefix##r_car   &prefix##s_car   &prefix##z_car   &none     \
- &kp L   &kp N  &kp X   &prefix##i_acu   &prefix##y_acu  &prefix##o_acu     \
+ &prefix##c_car    &prefix##e_car  &prefix##e_acu   &prefix##i_acu   &prefix##y_acu  &prefix##o_acu     \
      \
  &none   &kp LALT   &kp LCTRL     &kp LSHFT   &kp LWIN   &none        &none     \
  &none   &none      &prefix##emj_tongue   &kp RSHFT   &prefix##emj_vomit &prefix##emj_thumb   &prefix##emj_innocent     \
