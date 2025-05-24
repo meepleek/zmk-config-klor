@@ -61,7 +61,7 @@ EMOJI_PAIR(emj_thumb,      N4, N4, D,   N9, N7, N0)
 UNICODE_CHAR(euro, &kp N2 &kp N0 &kp A &kp C)
 UNICODE_CHAR(degree, &kp N0 &kp B &kp N0)
 
-OS_HINT_MACRO(l, L, I, N)
+OS_HINT_MACRO(l, L, N, X)
 OS_HINT_MACRO(m, M, A, C)
 OS_HINT_MACRO(w, W, I, N)
 
