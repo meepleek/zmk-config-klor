@@ -93,3 +93,17 @@
      \
                                        &none   &none           &none               &none     \
                                        &none   &prefix##emj_sad   &prefix##emj_grin   &prefix##emj_smile 
+
+
+#define BASE_OS_LAYER()  \
+                     &trans      &trans     &trans      &trans      &trans \
+                     &trans   &trans   &trans   &trans   &trans \
+ \
+             &trans  &trans   &trans   &trans   &trans   &trans \
+             &trans  &trans      &trans    &trans    &trans   &trans \
+ \
+             &trans  &trans   &trans       &trans       &trans        &trans         &trans \
+             &trans  &trans     &trans   &trans   &trans   &trans   &trans \
+ \
+                                                   &trans  &trans          &trans              &trans \
+                                                   &trans  &trans   &trans   &trans                                     
