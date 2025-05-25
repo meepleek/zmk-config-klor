@@ -51,30 +51,35 @@
     };
 
 
-#define EMOJI_PAIR_OS(name, leading_binding, trailing_binding, L2, L3, L4, U2, U3, U4) \
+#define EMOJI_PAIR_UTF32(name, leading_binding, trailing_binding, L2, L3, L4, U2, U3, U4) \
     UC_MACRO(name##_lower, leading_binding, trailing_binding, &kp N1 &kp F &kp L2 &kp L3 &kp L4)       \
     UC_MACRO(name##_upper, leading_binding, trailing_binding, &kp N1 &kp F &kp U2 &kp U3 &kp U4)       \
     SHIFTED_MODMORPH(name, &name##_lower, &name##_upper)
+
+#define EMOJI_PAIR_UTF16(name, leading_binding, trailing_binding, L3, L5, L6, L7, U3, U5, U6, U7) \
+    UC_MACRO(name##_lower, leading_binding, trailing_binding, &kp D &kp N8 &kp N3 &kp L3 &kp D &kp L5 &kp L6 &kp L7)       \
+    UC_MACRO(name##_upper, leading_binding, trailing_binding, &kp D &kp N8 &kp N3 &kp U3 &kp D &kp U5 &kp U6 &kp U7)       \
+    SHIFTED_MODMORPH(name, &name##_lower, &name##_upper)
+
+#define EMOJI_PAIR(name, L2, L3, L4, U2, U3, U4, ML3, ML5, MU3, MU5) \
+    EMOJI_PAIR_UTF32(l_##name, UNICODE_LEAD_LINUX, UNICODE_TRAIL_LINUX, L2, L3, L4, U2, U3, U4)   \
+    EMOJI_PAIR_UTF32(w_##name, UNICODE_LEAD_WIN, UNICODE_TRAIL_WIN, L2, L3, L4, U2, U3, U4)     \    
+    EMOJI_PAIR_UTF16(m_##name, UNICODE_LEAD_MAC, UNICODE_TRAIL_MAC, ML3, ML5, L3, L4, MU3, MU5, U3, U4) 
 
 #define CZECH_PAIR_OS(name, leading_binding, trailing_binding, L1, L2, L3, U1, U2, U3) \
     UC_MACRO(name##_lower, leading_binding, trailing_binding, &kp N0 &kp L1 &kp L2 &kp L3)       \
     UC_MACRO(name##_upper, leading_binding, trailing_binding, &kp N0 &kp U1 &kp U2 &kp U3)       \
     SHIFTED_MODMORPH(name, &name##_lower, &name##_upper)
 
-#define EMOJI_PAIR(name, L2, L3, L4, U2, U3, U4) \
-    EMOJI_PAIR_OS(l_##name, UNICODE_LEAD_LINUX, UNICODE_TRAIL_LINUX, L2, L3, L4, U2, U3, U4)   \
-    EMOJI_PAIR_OS(m_##name, UNICODE_LEAD_MAC, UNICODE_TRAIL_MAC, L2, L3, L4, U2, U3, U4)       \
-    EMOJI_PAIR_OS(w_##name, UNICODE_LEAD_WIN, UNICODE_TRAIL_WIN, L2, L3, L4, U2, U3, U4)
-
 #define CZECH_PAIR(name, L1, L2, L3, U1, U2, U3) \
     CZECH_PAIR_OS(l_##name, UNICODE_LEAD_LINUX, UNICODE_TRAIL_LINUX, L1, L2, L3, U1, U2, U3)   \
     CZECH_PAIR_OS(m_##name, UNICODE_LEAD_MAC, UNICODE_TRAIL_MAC, L1, L2, L3, U1, U2, U3)       \
     CZECH_PAIR_OS(w_##name, UNICODE_LEAD_WIN, UNICODE_TRAIL_WIN, L1, L2, L3, U1, U2, U3)
 
-#define UNICODE_CHAR(name, keybinding) \
-    UC_MACRO(l_##name, UNICODE_LEAD_LINUX, UNICODE_TRAIL_LINUX, keybinding)   \
-    UC_MACRO(m_##name, UNICODE_LEAD_MAC, UNICODE_TRAIL_MAC, keybinding)       \
-    UC_MACRO(w_##name, UNICODE_LEAD_WIN, UNICODE_TRAIL_WIN, keybinding)
+#define UNICODE_CHAR(name, keybinding_utf32, keybinding_utf16) \
+    UC_MACRO(l_##name, UNICODE_LEAD_LINUX, UNICODE_TRAIL_LINUX, keybinding_utf32)   \    
+    UC_MACRO(w_##name, UNICODE_LEAD_WIN, UNICODE_TRAIL_WIN, keybinding_utf32)       \    
+    UC_MACRO(m_##name, UNICODE_LEAD_MAC, UNICODE_TRAIL_MAC, keybinding_utf16)      
 
 #define UNICODE_LAYER(prefix) \
          &prefix##os_hint       &none        &prefix##degree       &prefix##euro       &bootloader     \
