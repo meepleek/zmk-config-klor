@@ -80,7 +80,7 @@
          &prefix##os_hint       &none        &prefix##degree       &prefix##euro       &bootloader     \
          &prefix##u_acu   &prefix##u_ring   &prefix##d_car   &prefix##n_car   &prefix##t_car     \
      \
- &none       &prefix##a_acu  &prefix##r_car   &prefix##s_car   &prefix##z_car   &none     \
+ &prefix##crab       &prefix##a_acu  &prefix##r_car   &prefix##s_car   &prefix##z_car   &none     \
  &prefix##c_car    &prefix##e_car  &prefix##e_acu   &prefix##i_acu   &prefix##y_acu  &prefix##o_acu     \
      \
  &none   &kp LALT   &kp LCTRL     &kp LSHFT   &kp LWIN   &none        &none     \
