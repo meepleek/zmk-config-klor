@@ -66,6 +66,17 @@ OS_HINT_MACRO(l, L, N, X)
 OS_HINT_MACRO(m, M, A, C)
 OS_HINT_MACRO(w, W, I, N)
 
+#define TRIGGER_KEYS_L  \
+    0 1 2 3 4 \
+    10 11 12 13 14 15 \
+    23 24 25 26 \
+    36 37 38
+#define TRIGGER_KEYS_R  \
+    5 6 7 8 9 \
+    16 17 18 19 20 21 \
+    31 32 33 34 \
+    41 42 43
+
 
 / {
     behaviors {
@@ -87,35 +98,21 @@ OS_HINT_MACRO(w, W, I, N)
             bindings = <&mo>, <&kp>;
         };
 
-        hml: home_row_mod_left {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            require-prior-idle-ms = <120>;
-            tapping-term-ms = <190>;
-            bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <
-                5 6 7 8 9
-                16 17 18 19 20 21
-                31 32 33 34
-                41 42 43
-            >;
-            hold-trigger-on-release;
-        };
-        hmr: home_row_mod_right {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            require-prior-idle-ms = <120>;
-            tapping-term-ms = <190>;
-            bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <
-                0 1 2 3 4
-                10 11 12 13 14 15
-                23 24 25 26
-                36 37 38
-            >;
-            hold-trigger-on-release;
+        // Home Row Mods
+        HRM(hrml, balanced, kp, kp, TRIGGER_KEYS_R)
+        HRM(hrmr, balanced, kp, kp, TRIGGER_KEYS_L)
+        // Home Row Mods - hold-preferred
+        HRM(hrmhl, hold-preferred, kp, kp, TRIGGER_KEYS_R)
+        HRM(hrmhr, hold-preferred, kp, kp, TRIGGER_KEYS_L)
+        // Home Row Mods - sticky tap
+        HRM(hrmsl, balanced, hrm_st, kp, TRIGGER_KEYS_R)
+        HRM(hrmsr, balanced, hrm_st, kp, TRIGGER_KEYS_L)
+        hrm_st: hrm_sticky_tap {
+            compatible = "zmk,behavior-sticky-key";
+            #binding-cells = <1>;
+            bindings = <&kp>;
+            release-after-ms = <1>;
+            lazy;            
         };
 
         tl_on: toggle_layer_on {
@@ -179,8 +176,8 @@ OS_HINT_MACRO(w, W, I, N)
              &kp Z   &kp A   &kp R   &kp S   &kp T   &kp D
              &kp H   &kp N   &kp E   &kp I   &kp O   &kp K 
 
-             &none   &kp LALT   &hml LCTRL COMMA    &hml LSHFT LPAR    &hml LWIN V    &none    &none
-             &none   &none      &hmr RWIN M         &hmr RSHFT RPAR    &hmr LCTRL DOT   &hmr LALT QMARK    &none
+             &none   &kp LALT   &hrml LCTRL COMMA    &hrmhl LSHFT LPAR    &hrmsl LWIN V    &none    &none
+             &none   &none      &hrmsr RWIN M         &hrmhr RSHFT RPAR    &hrmr LCTRL DOT   &hrmsr LALT QMARK    &none
 
                                                    &lt WINMGR ESC    &lt_rep NAV SPC     &lt UNICODE_LINUX TAB         &none
                                                    &none             &lt_rep FUN ENTER   &lt_rep NUM BACKSPACE &lt_rep SYM DELETE   
@@ -231,7 +228,7 @@ OS_HINT_MACRO(w, W, I, N)
              &none   &kp N0     &kp N1      &kp N2         &kp N3      &kp EXCL
              &none   &kp PLUS   &kp SLASH   &kp ASTERISK   &kp MINUS   &none
              
-             &none   &kp LALT   &hml LCTRL N4   &kp N5      &kp N6      &none      &none
+             &none   &kp LALT   &hrml LCTRL N4   &kp N5      &kp N6      &none      &none
              &none   &none      &kp RWIN       &kp RSHFT   &kp RCTRL   &kp LALT   &none
                                                    // todo: use
                                                    &none   &kp EQUAL   &kp DOT  &none
@@ -309,7 +306,7 @@ OS_HINT_MACRO(w, W, I, N)
              &none       &kp LG(KP_N0)   &kp LG(KP_N1)   &kp LG(KP_N2)   &kp LG(KP_N3)   &none
              &kp LG(H)   &kp LG(N)       &kp LG(E)       &kp LG(I)       &kp LG(O)       &kp LG(K)
              
-             &none   &kp LALT   &kp LG(KP_N4)   &hml LSHFT LG(KP_N5)   &kp LG(KP_N6)   &none   &none
+             &none   &kp LALT   &kp LG(KP_N4)   &hrml LSHFT LG(KP_N5)   &kp LG(KP_N6)   &none   &none
              &none   &none     &kp LG(F21)   &kp RSHFT   &kp LG(F23)   &kp LG(F24)   &none
                                                    
                                                    &none   &none   &none         &none
