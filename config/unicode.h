@@ -9,7 +9,7 @@
 #define UNICODE_LEAD_LINUX &macro_tap &kp LS(LC(U))  // <- Linux compose sequence
 #define UNICODE_TRAIL_LINUX &macro_tap &kp SPACE
 
-#define UNICODE_LEAD_MAC &macro_press &kp LALT  // <- macOS compose sequence (must be activated in system preferences) // todo: is UNICODE input layout fine?
+#define UNICODE_LEAD_MAC &macro_press &kp LALT  // <- macOS compose sequence (unicode hex input)
 #define UNICODE_TRAIL_MAC &macro_release &kp LALT
 
 #define UNICODE_LEAD_WIN &macro_tap &kp RALT &kp U  // <- WinCompose sequence
