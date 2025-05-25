@@ -211,8 +211,7 @@ OS_HINT_MACRO(w, W, I, N)
                      &kp K_APP   &kp HOME   &kp PG_DN   &kp PG_UP   &kp END
 
              &none   &kp LC(Z)   &kp LC(X)   &kp LC(C)   &kp LC(V)   &kp LC(Y)
-             // TODO: the unused left pinkie
-             &none   &kp LEFT      &kp DOWN    &kp UP    &kp RIGHT   &caps_word 
+             &key_repeat   &kp LEFT      &kp DOWN    &kp UP    &kp RIGHT   &caps_word 
 
              &none   &kp LALT   &kp LCTRL       &kp LSHFT       &kp LWIN        &none          &none
              &none   &none      &kp LG(KP_N5)   &kp LG(KP_N6)   &kp LG(KP_N7)   &kp CAPSLOCK   &none
