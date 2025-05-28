@@ -83,7 +83,7 @@ OS_HINT_MACRO(w, W, I, N)
         lt: layer_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "hold-preferred";
+            flavor = "balanced";
             tapping-term-ms = <200>;
             require-prior-idle-ms = <0>;
             bindings = <&mo>, <&kp>;
@@ -91,7 +91,7 @@ OS_HINT_MACRO(w, W, I, N)
         lt_rep: layer_tap_repeat {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "hold-preferred";
+            flavor = "balanced";
             quick-tap-ms = <250>;
             tapping-term-ms = <200>;
             require-prior-idle-ms = <0>;
