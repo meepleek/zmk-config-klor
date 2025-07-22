@@ -9,6 +9,7 @@
     "chrono": "cpp",
     "text_encoding": "cpp",
     "typeindex": "cpp",
-    "typeinfo": "cpp"
+    "typeinfo": "cpp",
+    "bitset": "cpp"
   }
 }
