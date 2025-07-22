@@ -65,6 +65,34 @@ OS_HINT_MACRO(l, L, N, X)
 OS_HINT_MACRO(m, M, A, C)
 OS_HINT_MACRO(w, W, I, N)
 
+// Win Mgr layer
+// using just regular mod keys (e.g. LG) without the macro approach did not work as the niri doesn't like the timing
+WIN_MGR_MACRO(wm_f1, F1)
+WIN_MGR_MACRO(wm_f2, F2)
+WIN_MGR_MACRO(wm_f3, F3)
+WIN_MGR_MACRO(wm_f4, F4)
+WIN_MGR_MACRO(wm_f5, F5)
+WIN_MGR_MACRO(wm_f6, F6)
+WIN_MGR_MACRO(wm_f7, F7)
+WIN_MGR_MACRO(wm_f8, F8)
+WIN_MGR_MACRO(wm_f9, F9)
+WIN_MGR_MACRO(wm_f10, F10)
+WIN_MGR_MACRO(wm_f11, F11)
+WIN_MGR_MACRO(wm_f12, F12)
+WIN_MGR_MACRO(wm_f13, F13)
+WIN_MGR_MACRO(wm_f14, F14)
+WIN_MGR_MACRO(wm_f15, F15)
+WIN_MGR_MACRO(wm_f16, F16)
+WIN_MGR_MACRO(wm_f17, F17)
+WIN_MGR_MACRO(wm_f18, F18)
+WIN_MGR_MACRO(wm_f19, F19)
+WIN_MGR_MACRO(wm_f20, F20)
+WIN_MGR_MACRO(wm_f21, F21)
+WIN_MGR_MACRO(wm_f22, F22)
+WIN_MGR_MACRO(wm_f23, F23)
+WIN_MGR_MACRO(wm_f24, F24)
+
+
 #define TRIGGER_KEYS_L  \
     0 1 2 3 4 \
     10 11 12 13 14 15 \
@@ -200,8 +228,8 @@ OS_HINT_MACRO(w, W, I, N)
              &none   &kp LC(Z)   &kp LC(X)   &kp LC(C)   &kp LC(V)   &kp LC(Y)
              &key_repeat   &kp LEFT      &kp DOWN    &kp UP    &kp RIGHT   &caps_word 
 
-             &none   &kp LALT   &kp LCTRL       &kp LSHFT       &kp LWIN        &none          &none
-             &none   &none      &kp LG(KP_N5)   &kp LG(KP_N6)   &kp LG(KP_N7)   &kp CAPSLOCK   &none
+             &none   &kp LALT   &kp LCTRL       &kp LSHFT       &kp LWIN        &none   &none
+             &none   &none      &kp LG(KP_N5)   &kp LG(KP_N6)   &kp LG(KP_N7)   &none   &none
 
                                                    &none   &none           &none               &none
                                                    &none   &kp LS(ENTER)   &kp LS(BACKSPACE)   &kp LS(DELETE)   
@@ -290,18 +318,18 @@ OS_HINT_MACRO(w, W, I, N)
 
         winmgr_layer {
             bindings = <
-                     &none   &kp LG(KP_N7)   &kp LG(KP_N8)   &kp LG(KP_N9)   &none
-                     &none   &kp LG(L)       &kp LG(U)   &kp LG(Y)   &kp LG(B)
+                     &none   &none   &none   &none   &none
+                     &none   &wm_f1       &wm_f2   &wm_f3   &wm_f4
 
-             &none       &kp LG(KP_N0)   &kp LG(KP_N1)   &kp LG(KP_N2)   &kp LG(KP_N3)   &none
-             &kp LG(H)   &kp LG(N)       &kp LG(E)       &kp LG(I)       &kp LG(O)       &kp LG(K)
+             &none       &wm_f5   &wm_f6   &wm_f7   &wm_f8   &none
+             &wm_f9   &wm_f10       &wm_f11       &wm_f12       &wm_f13       &wm_f14
              
-             &none   &kp LALT   &kp LG(KP_N4)   &hrml LSHFT LG(KP_N5)   &kp LG(KP_N6)   &none   &none
-             &none   &none     &kp LG(F21)   &kp RSHFT   &kp LG(F23)   &kp LG(F24)   &none
+             &none   &wm_f15   &wm_f16   &kp LSHFT   &wm_f17   &none   &none
+             &none   &none     &wm_f18   &wm_f19   &wm_f20   &wm_f21   &none
                                                    
                                                    &none   &none   &none         &none
                                                    // todo: 
-                                                   &none   &none   &kp LG(F20)   &none    
+                                                   &none   &wm_f22   &wm_f23   &wm_f24    
             >;
         };
     };
