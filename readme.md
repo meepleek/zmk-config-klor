@@ -4,6 +4,16 @@
   <img alt="KLOR logo font" src="/docs/images/klor-font-logo-bright.svg">
 </picture>
 
+# BUILD
+
+- run `[./build.sh](./build.sh)`
+- reset each half in bootloader mode
+  - btn
+  - &bootloader binding - set to outer/reachy thumb + top outer index for each half (top right corners on the left half and vice versa)
+- copy the respective FW files to the mounted keeb storage to automatically flash it
+
+# Original KLOR docs continue from here
+
 # ZMK CONFIG FOR THE KLOR SPLIT KEYBOARD
 
 [Here](https://github.com/GEIGEIGEIST/qmk-config-klor) you can find the QMK config for the KLOR.\
